@@ -18,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 必须加@ComponentScan("com.wei")，否则无法扫描到其他模块的包，其他模块的java文件也是在com.wei包路径下
  */
 @SpringBootApplication
-@MapperScan("com.wei.oj.mapper")
+@MapperScan("com.wei.ojbackenduserservice.mapper")
 @EnableScheduling
 @EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 @ComponentScan("com.wei")
