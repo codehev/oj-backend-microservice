@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "oj-backend-judge-service", path = "/api/judge/inner")
 public interface JudgeFeignClient {
     /**
+     * 判题
      *
      * @param questionSubmitId
      * @return

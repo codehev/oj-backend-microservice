@@ -102,13 +102,4 @@ public interface UserFeignClient {
         return userVO;
     }
 
-
-    /**
-     * 获取查询条件
-     *
-     * @param userQueryRequest
-     * @return
-     */
-//    QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
-
 }
