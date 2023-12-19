@@ -19,7 +19,8 @@ import javax.annotation.Resource;
  * @description TODO
  * @date 2023-12-19 21:12
  */
-@RestController("/inner")
+@RestController()
+@RequestMapping("/inner")
 public class QuestionInnerController implements QuestionFeignClient {
 
     @Resource

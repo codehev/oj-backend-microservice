@@ -1,15 +1,12 @@
 package com.wei.ojbackendjudgeservice.judge.controller.inner;
 
-import cn.hutool.core.util.NumberUtil;
 import com.wei.ojbackendcommon.common.ErrorCode;
 import com.wei.ojbackendcommon.exception.BusinessException;
 import com.wei.ojbackendjudgeservice.judge.JudgeService;
-import com.wei.ojbackendmodel.model.entity.Question;
-import com.wei.ojbackendmodel.model.entity.QuestionSubmit;
 import com.wei.ojbackendmodel.model.vo.QuestionSubmitVO;
 import com.wei.ojbackendserviceclient.service.JudgeFeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,7 +20,8 @@ import javax.annotation.Resource;
  * @description TODO
  * @date 2023-12-19 21:12
  */
-@RestController("/inner")
+@RestController()
+@RequestMapping("/inner")
 public class JudgeInnerController implements JudgeFeignClient {
 
     @Resource

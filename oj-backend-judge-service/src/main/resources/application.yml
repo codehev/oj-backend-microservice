@@ -1,6 +1,10 @@
 spring:
   application:
     name: oj-backend-judge-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
   # 默认 dev 环境
   profiles:
     active: dev

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: oj-backend-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+server:
+  port: 8100
+  servlet:
+    context-path: /api/gateway

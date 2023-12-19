@@ -21,7 +21,8 @@ import java.util.List;
  * @description TODO
  * @date 2023-12-19 21:12
  */
-@RestController("/inner")
+@RestController()
+@RequestMapping("/inner")
 public class UserInnerController implements UserFeignClient {
 
     @Resource
