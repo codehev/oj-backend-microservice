@@ -1,4 +1,4 @@
-package com.wei.ojbackendserviceclient.service;
+package com.wei.ojbackendquestionservice.service;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

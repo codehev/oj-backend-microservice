@@ -42,6 +42,13 @@
             <artifactId>oj-backend-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--引入oj-backend-service-client模块-->
+        <dependency>
+            <groupId>com.wei</groupId>
+            <artifactId>oj-backend-service-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

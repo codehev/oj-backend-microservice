@@ -29,7 +29,7 @@ import java.util.List;
  * @author wei
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/")
 @Slf4j
 public class UserController {
 

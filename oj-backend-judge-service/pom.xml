@@ -29,6 +29,25 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--引入oj-backend-model模块-->
+        <dependency>
+            <groupId>com.wei</groupId>
+            <artifactId>oj-backend-model</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--引入oj-backend-common模块-->
+        <dependency>
+            <groupId>com.wei</groupId>
+            <artifactId>oj-backend-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--引入oj-backend-service-client模块-->
+        <dependency>
+            <groupId>com.wei</groupId>
+            <artifactId>oj-backend-service-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

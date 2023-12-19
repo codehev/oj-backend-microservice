@@ -1,4 +1,4 @@
-package com.wei.ojbackendmodel.codesandbox;
+package com.wei.ojbackendmodel.model.codesandbox;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
