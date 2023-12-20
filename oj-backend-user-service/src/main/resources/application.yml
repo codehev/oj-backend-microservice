@@ -1,3 +1,15 @@
+server:
+  address: 0.0.0.0
+  port: 8102
+  servlet:
+    context-path: /api/user
+    # cookie 30 天过期（用户登录信息保存在session中）
+    session:
+      cookie:
+        max-age: 2592000
+        #解决 cookie 跨路径问题
+        path: /api
+
 spring:
   application:
     # 应用名称,微服务名称
@@ -40,16 +52,8 @@ spring:
     multipart:
       # 大小限制
       max-file-size: 10MB
-
-server:
-  address: 0.0.0.0
-  port: 8102
-  servlet:
-    context-path: /api/user
-    # cookie 30 天过期（用户登录信息保存在session中）
-    session:
-      cookie:
-        max-age: 2592000
+knife4j:
+  enable: true
 
 mybatis-plus:
   configuration:

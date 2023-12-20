@@ -31,7 +31,7 @@ public class QuestionInnerController implements QuestionFeignClient {
 
     @Override
     @GetMapping("/get/{id}")
-    public Question getQuestionById(@PathVariable("questionId") Long questionId) {
+    public Question getQuestionById(@PathVariable("id") Long questionId) {
         if (questionId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -44,7 +44,7 @@ public class QuestionInnerController implements QuestionFeignClient {
 
     @Override
     @GetMapping("/question_submit/get/{id}")
-    public QuestionSubmit getQuestionSubmitById(@PathVariable("questionId") Long questionSubmitId) {
+    public QuestionSubmit getQuestionSubmitById(@PathVariable("id") Long questionSubmitId) {
         if (questionSubmitId == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }

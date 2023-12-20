@@ -23,10 +23,10 @@ import java.util.List;
 public interface QuestionFeignClient {
 
     @GetMapping("/get/{id}")
-    Question getQuestionById(@PathVariable("questionId") Long questionId);
+    Question getQuestionById(@PathVariable("id") Long questionId);
 
     @GetMapping("/question_submit/get/{id}")
-    QuestionSubmit getQuestionSubmitById(@PathVariable("questionId") Long questionSubmitId);
+    QuestionSubmit getQuestionSubmitById(@PathVariable("id") Long questionSubmitId);
 
     @PostMapping("/question_submit/update")
     Boolean updateQuestionSubmitById(@RequestBody QuestionSubmit questionSubmit);

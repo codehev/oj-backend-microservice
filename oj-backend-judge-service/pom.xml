@@ -30,6 +30,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--引入knife4j，生成api文档，4.4.0版本无法引入-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
         <!--引入oj-backend-model模块-->
         <dependency>
             <groupId>com.wei</groupId>
