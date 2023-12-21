@@ -37,12 +37,19 @@
             <version>4.3.0</version>
         </dependency>
 
+        <!--AMQP依赖，包含RabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
         <!--引入oj-backend-model模块-->
         <dependency>
             <groupId>com.wei</groupId>
             <artifactId>oj-backend-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
         <!--引入oj-backend-common模块-->
         <dependency>
             <groupId>com.wei</groupId>

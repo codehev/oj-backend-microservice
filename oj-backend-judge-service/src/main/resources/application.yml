@@ -13,10 +13,17 @@ server:
 spring:
   application:
     name: oj-backend-judge-service
+  # 注册到 nacos
   cloud:
     nacos:
       discovery:
         server-addr: localhost:8848
+  rabbitmq:
+    host: 127.0.0.1 # 主机名
+    port: 5672 # 端口
+    virtual-host: / # 虚拟主机
+    username: guest # 用户名
+    password: guest # 密码
   # 默认 dev 环境
   profiles:
     active: dev

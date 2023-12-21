@@ -1,4 +1,4 @@
-package com.wei.ojbackendjudgeservice.judge.controller.inner;
+package com.wei.ojbackendjudgeservice.controller.inner;
 
 import com.wei.ojbackendcommon.common.ErrorCode;
 import com.wei.ojbackendcommon.exception.BusinessException;

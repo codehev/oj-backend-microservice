@@ -16,10 +16,12 @@ import com.wei.ojbackendmodel.model.enums.QuestionSubmitLanguageEnum;
 import com.wei.ojbackendmodel.model.enums.QuestionSubmitStatusEnum;
 import com.wei.ojbackendmodel.model.vo.QuestionSubmitVO;
 import com.wei.ojbackendquestionservice.mapper.QuestionSubmitMapper;
+import com.wei.ojbackendquestionservice.rabbitmq.MessageProducer;
 import com.wei.ojbackendquestionservice.service.QuestionService;
 import com.wei.ojbackendquestionservice.service.QuestionSubmitService;
 import com.wei.ojbackendserviceclient.service.JudgeFeignClient;
 import com.wei.ojbackendserviceclient.service.UserFeignClient;
+import net.sf.jsqlparser.expression.StringValue;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -47,10 +49,15 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
 
     @Resource
     private UserFeignClient userFeignClient;
+    /**
+     * @Lazy：存在循环调用，所以懒加载（延迟加载）
+     */
+    @Resource
+    @Lazy
+    private JudgeFeignClient judgeFeignClient;
 
     @Resource
-    @Lazy//存在循环调用，所以懒加载（延迟加载）
-    private JudgeFeignClient judgeFeignClient;
+    private MessageProducer messageProducer;
 
     /**
      * 提交题目
@@ -93,9 +100,10 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         }
         Long questionSubmitId = questionSubmit.getId();
         // todo 异步执行判题服务
-        CompletableFuture.runAsync(() -> {
-            judgeFeignClient.doJudge(questionSubmitId);
-        });
+//        CompletableFuture.runAsync(() -> {
+//            judgeFeignClient.doJudge(questionSubmitId);
+//        });
+        messageProducer.sendMessage("code_exchange", "my_routingKey", String.valueOf(questionSubmitId));
         return questionSubmitId;
     }
 
