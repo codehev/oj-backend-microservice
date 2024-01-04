@@ -16,6 +16,7 @@ import com.wei.ojbackendmodel.model.vo.LoginUserVO;
 import com.wei.ojbackendmodel.model.vo.UserVO;
 import com.wei.ojbackenduserservice.mapper.UserMapper;
 import com.wei.ojbackenduserservice.service.UserService;
+import com.wei.ojbackenduserservice.utils.RandomUserNameUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 
 /**
  * 用户服务实现
+ *
  * @author wei
  */
 @Service
@@ -70,6 +72,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             User user = new User();
             user.setUserAccount(userAccount);
             user.setUserPassword(encryptPassword);
+            user.setUserName(RandomUserNameUtils.getRandomJianHan(4));
+//            user.setUserAvatar("https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp");
             boolean saveResult = this.save(user);
             if (!saveResult) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "注册失败，数据库错误");
@@ -106,7 +110,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         request.getSession().setAttribute(UserConstant.USER_LOGIN_STATE, user);
         return this.getLoginUserVO(user);
     }
-
 
 
     /**

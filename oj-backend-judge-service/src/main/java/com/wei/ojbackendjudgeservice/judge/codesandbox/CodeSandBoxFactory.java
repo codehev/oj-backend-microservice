@@ -15,13 +15,13 @@ public class CodeSandBoxFactory {
      * @param type 沙箱类型
      * @return CodeSandBox接口
      */
-    public static CodeSandBox newInstance(String type) {
+    public static CodeSandBox newInstance(String type, String authRequestHeader, String authRequestSecretKey, String codeSandboxUrl) {
         //return的是CodeSandBox的实现类，但是是CodeSandBox类型
         switch (type) {
             case "example":
                 return new ExampleCodeSandBox();
             case "remote":
-                return new RemoteCodeSandBox();
+                return new RemoteCodeSandBox(authRequestHeader, authRequestSecretKey, codeSandboxUrl);
             case "thirdParty":
                 return new ThirdPartyCodeSandBox();
             default:

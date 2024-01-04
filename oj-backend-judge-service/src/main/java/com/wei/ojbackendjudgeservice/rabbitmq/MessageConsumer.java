@@ -54,9 +54,9 @@ public class MessageConsumer {
              * 拒绝接收到的 RabbitMQ 消息。(防止未执行成功，还把队列中的消息消耗了)该方法接受三个参数：
              * - deliveryTag：表示接收到的消息的唯一标识符。
              * - false：表示不需要应答消费者拒绝的消息。
-             * - true：表示如果 RabbitMQ 重试消息 deliveryTag 对应的消息，那么仅重试一次。
+             * - true：表示如果 RabbitMQ 重试消息 deliveryTag 对应的消息，那么仅重试一次。（可能会会不停止的重试）
              */
-            channel.basicNack(deliveryTag, false, true);
+            channel.basicNack(deliveryTag, false, false);
         }
 
 

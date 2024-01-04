@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class JudgeServiceImpl implements JudgeService {
+
     @Resource
     private QuestionFeignClient questionFeignClient;
 
@@ -36,6 +37,12 @@ public class JudgeServiceImpl implements JudgeService {
 
     @Value("${codeSandBox.type:example}")
     private String codeSandBoxType;
+    @Value("${codeSandBox.auth.request.header:auth}")
+    private String authRequestHeader;
+    @Value("${codeSandBox.auth.request.secret:secretkey}")
+    private String authRequestSecretKey;
+    @Value("${codeSandBox.url:http://127.0.0.1:8105/api/executeCode}")
+    private String codeSandboxUrl;
 
     @Override
     public QuestionSubmitVO doJudge(long questionSubmitId) {
@@ -68,7 +75,7 @@ public class JudgeServiceImpl implements JudgeService {
 
         // 4）调用沙箱，获取到执行结果
         //返回具体的代码沙箱实例
-        CodeSandBox codeSandBox = CodeSandBoxFactory.newInstance(codeSandBoxType);
+        CodeSandBox codeSandBox = CodeSandBoxFactory.newInstance(codeSandBoxType, authRequestHeader, authRequestSecretKey, codeSandboxUrl);
         //把沙箱实例作为参数，生成一个代理类，也是CodeSandBox类型，直接覆盖codeSandBox
         codeSandBox = new CodeSandBoxProxy(codeSandBox);
 

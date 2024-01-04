@@ -72,9 +72,15 @@ mybatis-plus:
       logic-delete-value: 1 # 逻辑已删除值（默认为 1）
       logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
 
+# todo 注意里面有配置com/wei/ojbackendjudgeservice/judge/codesandbox/impl/RemoteCodeSandBox.java
 #代码沙箱配置
 codeSandBox:
   type: remote
   # 代码沙箱地址
   url: http://127.0.0.1:8105/api/executeCode
 #  url: http://192.168.200.138:8105/api/executeCode
+  auth:
+    request:
+      header: auth
+      secret: secretkey
+
