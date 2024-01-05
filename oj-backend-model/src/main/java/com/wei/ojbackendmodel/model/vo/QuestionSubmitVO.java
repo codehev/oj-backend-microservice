@@ -3,6 +3,7 @@ package com.wei.ojbackendmodel.model.vo;
 import cn.hutool.json.JSONUtil;
 import com.google.gson.Gson;
 import com.wei.ojbackendmodel.model.dto.questionSubmit.JudgeInfo;
+import com.wei.ojbackendmodel.model.entity.Question;
 import com.wei.ojbackendmodel.model.entity.QuestionSubmit;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
@@ -64,6 +65,8 @@ public class QuestionSubmitVO implements Serializable {
     private Date updateTime;
 
     private UserVO userVO;
+
+    private QuestionVO questionVO;
 
     private static final long serialVersionUID = 1L;
 
